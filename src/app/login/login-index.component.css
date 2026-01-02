@@ -1,0 +1,61 @@
+.bg {
+  width: 100vw;
+  height: 100vh;
+  background: #f3f3f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.panel {
+  background: white;
+  width: 70%;
+  height: 500px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px 0 rgb(0 0 0 / 10%);
+}
+
+.title {
+  display: block;
+  font-family: Poppins-Bold;
+  font-size: 25px;
+  color: #333;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.loggle {
+  text-align: center;
+  margin-top: 10px;
+}
+
+input {
+  border: 0px;
+  outline: none;
+  border-bottom: 2px solid #adadad;
+
+}
+
+.loggin {
+  display: block;
+  font-family: Poppins-Bold;
+  font-size: 15px;
+  color: #333;
+  line-height: 1.2;
+  text-align: center;
+  background: linear-gradient(90deg, #20c1c9, #557ea3);
+  width: 65%;
+  border-radius: 20px;
+  color: white;
+  height: 25px;
+  line-height: 25px;
+  margin-left: 50px;
+  margin-top: 20px;
+
+
+}
+
+.input_title {
+  display: inline-block;
+  width: 80px;
+}

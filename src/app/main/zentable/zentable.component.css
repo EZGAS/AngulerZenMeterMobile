@@ -1,0 +1,7 @@
+hr {
+  margin: 0;
+}
+
+::ng-deep .ant-table-pagination-right {
+  justify-content: center !important;
+}

@@ -1,0 +1,20 @@
+<div class="row" style="height: 100%;">
+
+  <div class="col-3" style="height: 100%;overflow-y: scroll;">
+
+    <div *ngFor="let data of listOfData" class="ml-3 mt-3 single-line" (click)="ChooseCustomer(data)">
+      {{data.UserName}}
+    </div>
+
+
+  </div>
+
+
+
+
+  <div class="col-9">
+
+    <app-custer-update [userdata]="data"></app-custer-update>
+  </div>
+
+</div>

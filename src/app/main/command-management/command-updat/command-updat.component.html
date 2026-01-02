@@ -1,0 +1,46 @@
+<div class="container" style="position: fixed; width: 70%;">
+  <div class="row">
+    <div class="col-12 input-group-prepend mt-3">
+      <span class="input-group-text">客戶姓名</span>
+      <span class="ml-3 form-control">{{comdData.UserName}}</span>
+    </div>
+    <div class="col-12 input-group-prepend mt-3">
+      <span class="input-group-text">BarCode </span>
+      <span class="ml-3 form-control">{{comdData.Barcode}}</span>
+    </div>
+    <div class="col-12 input-group-prepend mt-3">
+      <span class="input-group-text">修改命令</span>
+
+      <nz-select class="ml-3" style="width: 800px;" [(ngModel)]="action" [(ngModel)]="comdData.cmdname"
+        (ngModelChange)="onChange($event)">
+        <nz-option nzValue="ReWriteTotal" nzLabel="修改度數"></nz-option>
+        <nz-option nzValue="SetReportCycle" nzLabel="修改回報週期"></nz-option>
+      </nz-select>
+    </div>
+    <div class="col-12 input-group-prepend mt-3">
+      <span class="input-group-text">累計度數</span>
+      <input type="text" class="ml-3 form-control" [disabled]="this.selectOption.cumulunt"
+        [(ngModel)]="comdData.cumulunt">
+    </div>
+
+    <div class="col-12 input-group-prepend mt-3">
+      <span class="input-group-text">發報週期</span>
+      <nz-select class="ml-3" style="width: 800px;" [disabled]="this.selectOption.reportcycle"
+        [(ngModel)]="comdData.reportcycle" (ngModelChange)="onChange($event)">
+        <nz-option nzValue=72 nzLabel="72小時回報"></nz-option>
+        <nz-option nzValue=48 nzLabel="48小時回報"></nz-option>
+        <nz-option nzValue=23 nzLabel="23小時回報"></nz-option>
+        <nz-option nzValue=12 nzLabel="12小時回報"></nz-option>
+        <nz-option nzValue=8 nzLabel="8小時回報"></nz-option>
+        <nz-option nzValue=2 nzLabel="每天回報"></nz-option>
+        <nz-option nzValue=5 nzLabel="每周回報"></nz-option>
+        <nz-option nzValue=3 nzLabel="每月回報"></nz-option>
+      </nz-select>
+
+    </div>
+
+    <div class="col-12 row justify-content-end  mt-3">
+      <div class="" (click)="UpdataCmdtablt()"><button nz-button nzType="primary">修 改</button></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,89 @@
+<div>
+  <div class="row justify-content-center align-items-center">
+    <div class="col-5 ml-1  mt-3 mb-3">
+      <div> 用戶名稱: </div>
+      <div> <input class="inputtext" nz-input placeholder="" [(ngModel)]="data.UserName" /></div>
+    </div>
+    <!-- <div class="col-3">
+      <div>異常檢查</div>
+      <div>
+      <nz-select class="inputtext" [(ngModel)]="data.collectiontime" (ngModelChange)="FilterAbnormalData()">
+        <nz-option nzValue="-1" nzLabel="昨日異常"></nz-option>
+        <nz-option nzValue="-3" nzLabel="三日異常"></nz-option>
+        <nz-option nzValue="-7" nzLabel="一周異常"></nz-option>
+        <nz-option nzValue="-30" nzLabel="一月異常"></nz-option>
+
+      </nz-select>
+    </div>
+
+    </div> -->
+
+    <div class="col-6 mt-3">
+      <button class="mr-4" nz-button nzType="primary" (click)="getZentable()">發報查詢</button>
+      <!-- <button class="mr-3" nz-button nzDanger nzType="primary" (click)="Del_OneYear_Zentable()">刪除一年以上發報</button> -->
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <nz-table #basicTable [nzData]="listOfData" [nzFrontPagination]="false" [nzLoading]="loading" [nzTotal]="total"
+        [nzPageSize]="100" (nzQueryParams)="GetDatasByPagination($event)" [nzScroll]="{ y: '670px' }">
+        <thead>
+          <tr>
+            <th class="text-center">用戶名稱</th>
+            <th class="text-center">發報度數<br />預訂度數</th>
+            <th class="text-center">發報日期<br />發報型態</th>
+            <th class="text-center">功能操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of basicTable.data">
+            <td>{{ data.UserName }}</td>
+            <td>
+              <div> {{ data.cumulunt | number:'1.0-2' }}</div>
+              <hr>
+              <div [ngClass]="data.cumulunt > data.nextMeter  ? 'overMeter' : ''">
+                {{
+                data.nextMeter |
+                number:'1.0-2'}}
+              </div>
+            </td>
+
+            <td>
+
+              <div>{{ data.Date | date:'MM-dd HH:mm' }}</div>
+              <hr>
+              <div [ngClass]="data.reportmode=='瓦斯已切换' ? 'overMeter' : ''"> {{
+                data.reportmode}}</div>
+
+            </td>
+            <td>
+              <div>
+
+                <div>
+                  <button nz-button (click)="showModal(data)" class="recoverMeter" nzType="primary">修改預定</button>
+
+
+                </div>
+                <hr>
+                <div class="mr-3">
+                  <button nz-button (click)="delzentable(data.Id)" nzType="primary" nzDanger>刪除</button>
+                </div>
+
+              </div>
+          </tr>
+        </tbody>
+      </nz-table>
+    </div>
+
+  </div>
+
+  <nz-modal [(nzVisible)]="isVisible" nzTitle="修改下次換桶度數" [nzCancelText]="'取消'" (nzOnCancel)="handleCancel()"
+    (nzOnOk)="handleOk()">
+    <ng-container *nzModalContent>
+      <div> <span class="tital">發報度數</span><input type="text" [value]="setPointData.cumulunt"></div>
+      <div class="mt-3"> <span class="tital">建議修改度數</span><input type="text" [(ngModel)]="setPointData.nextMeter"></div>
+
+    </ng-container>
+  </nz-modal>
+</div>

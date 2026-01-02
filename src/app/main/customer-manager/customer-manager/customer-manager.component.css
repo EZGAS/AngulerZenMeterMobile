@@ -1,0 +1,8 @@
+.single-line {
+  white-space: nowrap;
+  /* 強制不換行 */
+  overflow: hidden;
+  /* 隱藏超出部分 */
+  text-overflow: ellipsis;
+  /* 顯示省略號 */
+}

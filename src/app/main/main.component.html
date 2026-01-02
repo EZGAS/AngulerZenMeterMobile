@@ -1,0 +1,8 @@
+<ul>
+  <li><a [routerLink]="['zentable']" routerLinkActive="active">發報資料</a></li>
+  <li><a [routerLink]="['commandManagement']" routerLinkActive="active">發報管理</a></li>
+  <li><a [routerLink]="['customer']" routerLinkActive="active">新增客戶</a></li>
+  <li><a [routerLink]="['customer-manager']" routerLinkActive="active">客戶管理</a></li>
+  <li><a> <button nz-button nzType="primary" (click)=" Logout()">登出</button></a></li>
+</ul>
+<router-outlet></router-outlet>

@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  //apiurl: "https://www.ezgas.com.tw/zenmeter/api/",
+  apiurl: "http://localhost:51465/api/",
+  frontdomain: "http://localhost:4200/#/"
 };
 
 /*

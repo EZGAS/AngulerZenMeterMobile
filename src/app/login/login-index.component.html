@@ -1,0 +1,18 @@
+<div class="bg">
+  <div class="panel">
+    <div class="title mt-5">瓦斯抄表系統</div>
+    <div class="loggle">
+      <img class="loggleimg w-50 " src="assets/logo.png" alt="">
+    </div>
+    <div class="email text-center mt-3">
+      <div class="emai-text text-left pl-5"> </div>
+      <input type="Email" placeholder="Email" [(ngModel)]="data.Account">
+    </div>
+    <div class="password text-center mt-3">
+      <div class="password-text text-left pl-5 "></div>
+      <input type="password" placeholder="Password" [(ngModel)]="data.Password">
+    </div>
+    <div class="loggin" (click)="login()">登入</div>
+
+  </div>
+</div>

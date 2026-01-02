@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 input-group-prepend mt-3">
+      <span class="input-group-text">客戶姓名</span>
+      <input type="text" class="ml-3 form-control" [(ngModel)]="data.UserName">
+    </div>
+    <div class="col-12 input-group-prepend mt-3">
+      <span class="input-group-text">Barcode</span>
+      <input type="text" class="ml-3 form-control" [(ngModel)]="data.Barcode">
+    </div>
+    <div class="col-12 input-group-prepend mt-3">
+      <span class="input-group-text">啟用日期</span>
+      <input type="text" class="ml-3 form-control" [(ngModel)]="data.Date">
+    </div>
+    <div class="col-12 input-group-prepend mt-3">
+      <span class="input-group-text">下次換桶度數</span>
+      <input type="text" class="ml-3 form-control" [(ngModel)]="data.nextMeter">
+    </div>
+    <div class="col-12 input-group-prepend mt-3">
+      <span class="input-group-text">下次換桶度數設定值</span>
+      <input type="text" class="ml-3 form-control" [(ngModel)]="data.setPoint">
+    </div>
+    <div class="col-12 input-group-prepend mt-3">
+      <span class="input-group-text">地址(縣市)</span>
+      <input type="text" class="ml-3 form-control" [(ngModel)]="data.Address1">
+    </div>
+    <div class="col-12 input-group-prepend mt-3">
+      <span class="input-group-text">地址(鄉鎮區)</span>
+      <input type="text" class="ml-3 form-control" [(ngModel)]="data.Address2">
+    </div>
+    <div class="col-12 input-group-prepend mt-3">
+      <span class="input-group-text">地址(路街巷號)</span>
+      <input type="text" class="ml-3 form-control" [(ngModel)]="data.Address3">
+    </div>
+    <div class="col-12 input-group-prepend mt-3">
+      <span class="input-group-text">行動電話</span>
+      <input type="text" class="ml-3 form-control" [(ngModel)]="data.Tel1">
+    </div>
+    <div class="col-12 input-group-prepend mt-3">
+      <span class="input-group-text">市內電話</span>
+      <input type="text" class="ml-3 form-control" [(ngModel)]="data.Tel2">
+    </div>
+    <div class="col-12 input-group-prepend mt-3">
+      <span class="input-group-text">瓦斯桶種類</span>
+      <input type="text" class="ml-3 form-control" [(ngModel)]="data.GasType">
+    </div>
+    <div class="col-12 input-group-prepend mt-3">
+      <span class="input-group-text">瓦斯桶數量</span>
+      <input type="text" class="ml-3 form-control" [(ngModel)]="data.GasQuantity">
+    </div>
+    <div class="col-12 input-group-prepend mt-3">
+      <span class="input-group-text">平台費用</span>
+      <input type="text" class="ml-3 form-control" [(ngModel)]="data.platformFee">
+    </div>
+    <div class="col-12 input-group-prepend mt-3">
+      <span class="input-group-text">備註欄位</span>
+      <input type="text" class="ml-3 form-control" [(ngModel)]="data.Remark">
+    </div>
+
+  </div>
+  <div class="row justify-content-center  mt-3">
+    <div class="col-3" (click)="UpdataUsertablt()"><button nz-button nzType="primary">修 改</button></div>
+  </div>
+</div>
