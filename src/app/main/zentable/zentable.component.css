@@ -5,3 +5,24 @@ hr {
 ::ng-deep .ant-table-pagination-right {
   justify-content: center !important;
 }
+
+.inputtext {
+  width: 60%;
+}
+
+.overMeter {
+  background-color: rgb(241, 1, 21);
+  color: black;
+}
+
+.recoverMeter {
+  background: #1fad1f;
+  border: 1px solid #1fad1f;
+}
+
+.tital {
+  display: inline-block;
+  width: 90px;
+  margin-right: 10px;
+
+}
