@@ -23,6 +23,11 @@ const routes: Routes = [
       {
         path: 'customer-manager', loadChildren: () => import('./customer-manager/customer-manager.module').then(m => m.CustomerManagerModule)
       },
+       {
+        path: 'deliverschedule', loadChildren: () => import('./deliverschedule/deliverschedule.module').then(m => m.DeliverscheduleModule)
+      }, {
+        path: 'deliveryhistory', loadChildren: () => import('./deliveryhistory/deliveryhistory.module').then(m => m.DeliveryhistoryModule)
+      },
     ]
   }
 ];

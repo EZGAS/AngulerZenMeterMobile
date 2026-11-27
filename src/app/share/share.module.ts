@@ -1,5 +1,4 @@
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NzButtonModule } from 'ng-zorro-antd/button';
@@ -16,8 +15,9 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzListModule } from 'ng-zorro-antd/list';
-
-const zorroModules: any[] = [NzListModule, NzRadioModule, NzMenuModule, NzTableModule, NzIconModule, NzInputModule, NzButtonModule, HttpClientModule, FormsModule, NzModalModule, NzDrawerModule, NzTabsModule, NzSwitchModule, NzSelectModule]
+import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+const zorroModules: any[] = [NzPaginationModule, NzInputNumberModule, NzDatePickerModule, NzTimePickerModule, NzListModule, NzRadioModule, NzMenuModule, NzTableModule, NzIconModule, NzInputModule, NzButtonModule, FormsModule, NzModalModule, NzDrawerModule, NzTabsModule, NzSwitchModule, NzSelectModule]
 @NgModule({
   declarations: [],
   imports: [

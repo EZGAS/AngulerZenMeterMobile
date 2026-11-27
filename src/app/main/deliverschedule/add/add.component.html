@@ -1,0 +1,126 @@
+<div class="row align-items-center">
+
+  <div class="col-4">
+    <div class='text-center'>送貨日期</div>
+    <div>
+      <nz-date-picker (ngModelChange)="ChangeDeliveryDate($event)" [(ngModel)]="deliveryDate"></nz-date-picker>
+    </div>
+
+  </div>
+  <div class="col-4">
+    <div class='text-center'>參照日期</div>
+    <div>
+      <nz-date-picker [(ngModel)]=" this.referencedata.referenceDate"></nz-date-picker>
+    </div>
+
+  </div>
+  <div class="col-4">
+    <div class='text-center'>送貨員工</div>
+
+    <div>
+
+      <nz-select class="inputtext" [(ngModel)]="this.referencedata.employeid">
+        <nz-option nzValue="00000000-0000-0000-0000-000000000000" nzLabel="請選擇"></nz-option>
+        <nz-option *ngFor="let item of employees " [nzValue]="item.Id" [nzLabel]="item.Name"></nz-option>
+
+      </nz-select>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-12 mt-2 ml-5">
+      <button class="ml-2 mr-2" nz-button nzType="primary" (click)="addrecord()">單筆新增</button>
+      <button class="ml-1 mr-2" nz-button nzType="primary" (click)="searchrecord()">參照日期查詢</button>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+
+<hr>
+<!--<div class="row">
+  <div class="col-12">-->
+
+<div style="height: 500px; overflow-y: auto;">
+
+  <div class="row justify-content-center align-items-center" *ngFor=" let item of listOfData">
+    <div class="col-9">
+      <div class="row">
+        <div class="col-6 mr-2">
+          <div>客戶名稱</div>
+          <div>
+
+            <nz-select style="width:150px" class="inputtext" [(ngModel)]="item.userId">
+              <nz-option nzValue="00000000-0000-0000-0000-000000000000" nzLabel="請選擇"></nz-option>
+              <nz-option *ngFor="let item of users " [nzValue]="item.Id" [nzLabel]="item.Name"></nz-option>
+
+            </nz-select>
+          </div>
+        </div>
+        <div class="col-5  mr-2">
+          <div>數量</div>
+          <div>
+
+            <nz-input-number style='width: 50px;' [(ngModel)]="item.gasQuantity" [nzMin]=1 [nzMax]=10></nz-input-number>
+          </div>
+        </div>
+        <!-- <div class="col-2">
+            <div>送貨日期</div>
+            <div>
+              <nz-date-picker [(ngModel)]="item.deliveryDate"></nz-date-picker>
+
+            </div>
+          </div>
+          <div class="col-2">
+            <div>送貨人員</div>
+            <div>
+
+              <nz-select class="inputtext" [(ngModel)]="item.employeeId">
+                <nz-option *ngFor="let item of employees " [nzValue]="item.Id" [nzLabel]="item.Name"></nz-option>
+
+              </nz-select>
+            </div>
+          </div> -->
+        <div class="col-6 mr-2">
+          <div>瓦斯種類</div>
+          <div>
+
+            <nz-select style="width:150px" class="inputtext" [(ngModel)]="item.gasType">
+              <nz-option nzValue="20kg" nzLabel="20kg"></nz-option>
+              <nz-option nzValue="4kg" nzLabel="4kg"></nz-option>
+              <nz-option nzValue="10kg" nzLabel="10kg"></nz-option>
+              <nz-option nzValue="16kg" nzLabel="16kg"></nz-option>
+              <nz-option nzValue="50kg" nzLabel="50kg"></nz-option>
+            </nz-select>
+          </div>
+        </div>
+
+
+        <div class="col-5  mr-2">
+          <div>備註</div>
+          <div>
+            <input style='width: 150px;' type="text" nz-input [(ngModel)]="item.remark">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <button class="mr-4" nz-button nzType="primary" nzDanger (click)="delrecord(item)">刪除</button>
+    </div>
+
+    <!-- <div class="col-1">
+
+      </div> -->
+    <hr class="col-12">
+  </div>
+
+</div>
+
+<div class="text-center">
+  <button class="ml-6" nz-button nzDanger nzType="primary" (click)="addDelivery()">送出</button>
+
+</div>

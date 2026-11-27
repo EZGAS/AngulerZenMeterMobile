@@ -9,12 +9,15 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
-  get(api: string) {
 
+  get(api: string) {
     return this.http.get<any>(environment.apiurl + api);
   }
   post(api: string, data: any) {
     return this.http.post<any>(environment.apiurl + api, data)
+  }
+  delete(api: string, data: any) {
+    return this.http.delete<any>(environment.apiurl + api)
   }
 
 }

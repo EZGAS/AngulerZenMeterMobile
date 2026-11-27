@@ -1,0 +1,13 @@
+.ellipsis {
+  white-space: nowrap;
+  /* 強制文字不換行 */
+  overflow: hidden;
+  /* 隱藏超過容器的內容 */
+  text-overflow: ellipsis;
+  /* 超出部分顯示「…」 */
+}
+
+.tital {
+  display: inline-block;
+  width: 80px;
+}

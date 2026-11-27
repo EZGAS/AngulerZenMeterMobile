@@ -1,9 +1,86 @@
-<ul>
-  <li><a [routerLink]="['zentable']" routerLinkActive="active">發報資料</a></li>
-  <li><a [routerLink]="['commandManagement']" routerLinkActive="active">發報管理</a></li>
-  <li><a [routerLink]="['customer']" routerLinkActive="active">新增客戶</a></li>
-  <li><a [routerLink]="['customer-manager']" routerLinkActive="active">客戶管理</a></li>
-</ul>
-<div style="position: absolute; top: 10px; right: 10px;"><a> <button nz-button nzType="primary"
-      (click)=" Logout()">登出</button></a></div>
-<router-outlet></router-outlet>
+<div class="app-container">
+
+  <!-- ========================= -->
+  <!-- Header -->
+  <!-- ========================= -->
+
+  <header class="app-header">
+
+    <!-- Menu Button -->
+    <button nz-button nzType="text" class="menu-button" (click)="toggleMenu()">
+      <span class="menu-icon">☰</span>
+    </button>
+
+
+    <!-- Title -->
+    <div class="app-title">
+      {{title}}
+    </div>
+
+
+    <!-- Logout -->
+    <button nz-button nzType="text" class="logout-button" (click)="Logout()">
+      <span class="logout-icon">⇥</span>
+      <span>登出</span>
+    </button>
+
+  </header>
+
+
+  <!-- ========================= -->
+  <!-- Side Menu -->
+  <!-- ========================= -->
+
+  <div class="menu-overlay" *ngIf="menuOpen" (click)="closeMenu()"></div>
+
+
+  <nav class="side-menu" [class.open]="menuOpen">
+
+    <div class="menu-header">
+
+      <span>
+        功能選單
+      </span>
+
+      <button nz-button nzType="text" (click)="closeMenu()">
+        ✕
+      </button>
+
+    </div>
+
+
+    <div class="menu-list">
+
+      <a *ngFor="let item of menuItems" [routerLink]="item.route" routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">
+
+        <span class="item-icon">{{ item.icon }}</span>
+        <span>{{ item.title }}</span>
+
+      </a>
+
+    </div>
+
+
+    <!-- Menu Bottom -->
+    <div class="menu-bottom">
+
+      <button nz-button nzType="text" (click)="Logout()">
+        <span class="item-icon">🚪</span>
+        <span>登出</span>
+      </button>
+
+    </div>
+
+  </nav>
+
+
+  <!-- ========================= -->
+  <!-- Content -->
+  <!-- ========================= -->
+
+  <main class="app-content">
+    <router-outlet></router-outlet>
+  </main>
+
+</div>

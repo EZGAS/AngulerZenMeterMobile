@@ -21,8 +21,10 @@ export class LoginIndexComponent implements OnInit {
     this.http.post<any>(environment.apiurl + "login", this.data).subscribe(x => {
 
       if (x.Result) {
+        console.log(x);
         sessionStorage.setItem('user_name', x.name);
-        sessionStorage.setItem('user_id', x.id);
+        sessionStorage.setItem('user_id', x.AgentId);
+        sessionStorage.setItem('employee_id', x.id);
         sessionStorage.setItem('reporttime', x.reporttime);
         sessionStorage.setItem('role', x.role);
         sessionStorage.setItem('token', x.token);
@@ -33,6 +35,7 @@ export class LoginIndexComponent implements OnInit {
         alert("登入失敗")
       }
     })
+
 
   }
 }

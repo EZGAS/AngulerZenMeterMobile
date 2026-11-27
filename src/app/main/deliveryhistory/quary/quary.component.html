@@ -1,0 +1,87 @@
+<div class="">
+  <div>
+    <span>員工</span>
+    <nz-select style="margin: 0px 8px;" class="inputtext" [(ngModel)]="this.referencedata.Employee_ID">
+      <nz-option nzValue="00000000-0000-0000-0000-000000000000" nzLabel="請選擇"></nz-option>
+      <nz-option *ngFor="let item of employees " [nzValue]="item.Id" [nzLabel]="item.Name"></nz-option>
+
+    </nz-select>
+    <span>客戶名稱</span>
+    <nz-select style="margin: 0px 8px;" class="inputtext" [(ngModel)]="this.referencedata.UserTable_ID">
+      <nz-option nzValue="00000000-0000-0000-0000-000000000000" nzLabel="請選擇"></nz-option>
+      <nz-option *ngFor="let item of users " [nzValue]="item.Id" [nzLabel]="item.Name"></nz-option>
+
+    </nz-select>
+    <div>
+      <span>日期</span> <nz-date-picker style="width: 120px; margin: 0px 8px;"
+        [(ngModel)]="this.referencedata.Deliver_Date"></nz-date-picker>
+      <button class="mr-4" nz-button nzType="primary" nzDanger (click)="getdelivehistory()">查詢</button>
+    </div>
+
+  </div>
+  <hr>
+</div>
+<div class="container">
+  <div class="row " style="overflow: auto;">
+    <div class="col-12  mt-3">
+      <span style="width: 70px;" class="d-inline-block ml-1 ">客戶名稱</span>
+      <span style="width: 60px;" class="d-inline-block ml-1 ">送貨員工</span>
+      <span style="width: 70px;" class="d-inline-block ml-1  text-center">送貨日期</span>
+      <span style="width: 70px;" class="d-inline-block ml-1  text-center">瓦斯度數</span>
+      <span style="width: 70px;" class="d-inline-block ml-1  text-center">預估桶數</span>
+    </div>
+  </div>
+  <hr>
+  <div class="row " style="overflow: auto;" *ngFor=" let item of listOfData">
+    <div class="col-12  mt-3">
+      <span style="width: 80px; color: blue; text-decoration: underline;" (click)="getuserhistory(item)"
+        class="d-inline-block ml-1 ellipsis">{{item.UserName}}</span>
+      <!-- <button style="width: 100px;" nz-button nzType="primary" (click)="getuserhistory()">{{item.UserName}}</button> -->
+      <span style="width: 50px;" class="d-inline-block ml-1 ellipsis">{{item.Employee_Name}}</span>
+      <span style="width: 100px;" class="d-inline-block ml-1 ellipsis text-center">{{item.Deliver_Date |
+        date:'yyyy-MM-dd'}}</span>
+      <span style="width: 40px;" class="d-inline-block ml-1 ellipsis text-center">{{item.Gas_Usage}}</span>
+      <span style="width: 40px;" class="d-inline-block ml-1 ellipsis text-center">{{item.Estimated_Quantity}}</span>
+      <!-- <button nz-button nzType="primary" nzDanger nzShape="circle" (click)="getuserhistory()"><i nz-icon
+          nzType="search"></i></button> -->
+
+    </div>
+
+
+  </div>
+  <nz-pagination class="text-center mt-3" [nzPageIndex]="1" [nzTotal]="totalSize"
+    (nzPageIndexChange)="ChangePage($event)"></nz-pagination>
+</div>
+<nz-modal [(nzVisible)]="isVisible" nzTitle="修改歷史資料" [nzCancelText]="'取消'" (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()">
+  <ng-container *nzModalContent>
+    <div> <span class="tital">客戶名稱</span><input type="text" nz-input [(ngModel)]="history.UserName"
+        class="ml-3 mt-3 w-50">
+    </div>
+    <div> <span class="tital">瓦斯度數</span><input type="text" nz-input [(ngModel)]="history.Gas_Usage"
+        class="ml-3 mt-3 w-50">
+    </div>
+    <div> <span class="tital">剩餘重量</span><input type="text" nz-input [(ngModel)]="history.Gas_Remaining"
+        class="ml-3 mt-3 w-50"></div>
+    <div> <span class="tital">送貨數量</span><input type="text" nz-input [(ngModel)]="history.Quantity"
+        class="ml-3 mt-3 w-50">
+    </div>
+    <div> <span class="tital">收款狀態</span>
+      <nz-select class="ml-3 mt-3 tital" [(ngModel)]="history.Payment">
+        <nz-option nzValue="月結" nzLabel="月結"></nz-option>
+        <nz-option nzValue="未收" nzLabel="未收"></nz-option>
+        <nz-option nzValue="現金" nzLabel="現金"></nz-option>
+      </nz-select>
+    </div>
+
+
+    <div> <span class="tital">收款金額</span><input type="text" nz-input [(ngModel)]="history.Amount"
+        class="ml-3 mt-3 w-50">
+    </div>
+    <div> <span class="tital">預估桶數</span><input type="text" nz-input [(ngModel)]="history.Estimated_Quantity"
+        class="ml-3 mt-3 w-50"></div>
+
+    <div> <span class="tital">備註</span><input type="text" nz-input [(ngModel)]="history.Remark" class="ml-3 mt-3  w-50">
+    </div>
+  </ng-container>
+</nz-modal>

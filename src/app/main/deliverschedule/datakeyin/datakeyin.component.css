@@ -1,0 +1,13 @@
+label {
+  width: 100px;
+  text-align: center;
+}
+
+nz-select {
+  width: 50%;
+}
+
+input {
+  margin-left: 10px;
+  width: 50%;
+}

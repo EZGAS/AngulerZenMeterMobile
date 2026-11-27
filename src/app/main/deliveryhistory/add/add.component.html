@@ -1,0 +1,71 @@
+<div class="">
+  <div class="d-flex mt-3">
+    <div style="margin-left: 10px"><span>員工</span>
+      <nz-select style="margin: 0px 8px;" class="inputtext" [(ngModel)]="this.referencedata.Employee_ID">
+        <nz-option nzValue="00000000-0000-0000-0000-000000000000" nzLabel="請選擇"></nz-option>
+        <nz-option *ngFor="let item of employees " [nzValue]="item.Id" [nzLabel]="item.Name"></nz-option>
+
+      </nz-select>
+    </div>
+
+    <div style="margin-left: 10px;">
+      <span>日期</span> <nz-date-picker style="width: 120px; margin: 0px 8px;"
+        [(ngModel)]="this.referencedata.Deliver_Date"></nz-date-picker>
+      <button class="mr-2" nz-button nzType="primary" nzDanger (click)="addRecord()">新增</button>
+    </div>
+
+  </div>
+  <hr>
+</div>
+<div class="text-center">
+  <button class="ml-3" nz-button nzDanger nzType="primary" (click)="SubmitRecord()">送出</button>
+  <button class="ml-3" nz-button nzType="primary" (click)="clearRecord()">清除</button>
+</div>
+<div class="container">
+  <div class="row justify-content-center align-items-center" *ngFor=" let item of listOfData">
+    <div class="w-100 text-center">
+      <span class="tital">客戶名稱</span>
+      <nz-select class="ml-3 mt-3 tital" style="width: 46%;" [(ngModel)]="item.userId">
+        <nz-option nzValue="00000000-0000-0000-0000-000000000000" nzLabel="請選擇"></nz-option>
+        <nz-option *ngFor="let item of users " [nzValue]="item.Id" [nzLabel]="item.Name"></nz-option>
+      </nz-select>
+    </div>
+    <div class="w-100 text-center"> <span class="tital">瓦斯度數</span><input type="text" nz-input
+        [(ngModel)]="item.GasUsage" class="ml-3 mt-3 " style="width: 46%;">
+    </div>
+    <div class="w-100 text-center"> <span class="tital">剩餘重量</span><input type="text" nz-input
+        [(ngModel)]="item.GasRemaining" class="ml-3 mt-3 " style="width: 46%;"></div>
+    <div class="w-100 text-center">
+      <span class="tital">瓦斯種類</span>
+      <nz-select class="ml-3 mt-3 tital" style="width: 46%;" [(ngModel)]="item.GasType">
+        <nz-option nzValue="20kg" nzLabel="20kg"></nz-option>
+        <nz-option nzValue="4kg" nzLabel="4kg"></nz-option>
+        <nz-option nzValue="16kg" nzLabel="16kg"></nz-option>
+        <nz-option nzValue="50kg" nzLabel="50kg"></nz-option>
+      </nz-select>
+    </div>
+    <div class="w-100 text-center"> <span class="tital">送貨數量</span><input type="text" nz-input
+        [(ngModel)]="item.GasQuantity" class="ml-3 mt-3 " style="width: 46%;">
+    </div>
+
+    <div class="w-100 text-center"> <span class="tital">收款狀態</span>
+      <nz-select class="ml-3 mt-3 tital" style="width: 46%;" [(ngModel)]="item.Payment">
+        <nz-option nzValue="月結" nzLabel="月結"></nz-option>
+        <nz-option nzValue="未收" nzLabel="未收"></nz-option>
+        <nz-option nzValue="現金" nzLabel="現金"></nz-option>
+      </nz-select>
+    </div>
+
+
+    <div class="w-100 text-center"> <span class="tital">收款金額</span><input type="text" nz-input [(ngModel)]="item.Amount"
+        class="ml-3 mt-3 " style="width: 46%;">
+    </div>
+    <div class="w-100 text-center"> <span class="tital">預估桶數</span><input type="text" nz-input
+        [(ngModel)]="item.EstimatedQuantity" class="ml-3 mt-3 " style="width: 46%;"></div>
+
+    <div class="w-100 text-center"> <span class="tital">備註</span><input type="text" nz-input [(ngModel)]="item.Remark"
+        class="ml-3 mt-3  " style="width: 46%;">
+    </div>
+
+  </div>
+  <hr>

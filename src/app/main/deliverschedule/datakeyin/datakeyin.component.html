@@ -1,0 +1,53 @@
+<div>
+  <div>
+    <label>客戶名稱</label> <input [(ngModel)]="data.username" nz-input type="text">
+  </div>
+
+  <div>
+    <label>瓦斯種類</label>
+    <nz-select style="margin: 0px 8px;" class="inputtext" [(ngModel)]="data.gasType">
+
+      <nz-option nzValue="20kg" nzLabel="20kg"></nz-option>
+      <nz-option nzValue="50kg" nzLabel="50kg"></nz-option>
+      <nz-option nzValue="4kg" nzLabel="4kg"></nz-option>
+      <nz-option nzValue="16kg" nzLabel="16kg"></nz-option>
+      <nz-option nzValue="10kg" nzLabel="10kg"></nz-option>
+    </nz-select>
+
+  </div>
+  <div>
+    <label>瓦斯數量</label> <input [(ngModel)]="data.gasQuantity" nz-input type="text">
+  </div>
+
+  <div>
+    <label>預估桶</label> <input [(ngModel)]="data.estimatedQuantity" nz-input type="text">
+  </div>
+
+  <div>
+    <label>金額</label> <input [(ngModel)]="data.amount" nz-input type="text">
+  </div>
+  <div>
+    <label>收款狀態</label>
+    <nz-select style="margin: 0px 8px;" class="inputtext" [(ngModel)]="data.payment">
+      <nz-option nzValue="月結" nzLabel="月結"></nz-option>
+      <nz-option nzValue="未收" nzLabel="未收"></nz-option>
+      <nz-option nzValue="現金" nzLabel="現金"></nz-option>
+    </nz-select>
+  </div>
+  <div>
+    <label>瓦斯度數</label> <input [(ngModel)]="data.gasUsage" nz-input type="text">
+  </div>
+  <div>
+    <label>瓦斯剩重</label> <input [(ngModel)]="data.gasRemaining" nz-input type="text">
+  </div>
+  <div>
+    <label>備註</label> <input [(ngModel)]="data.remark" nz-input type="text">
+  </div>
+</div>
+<div>
+  <div class="d-flex">
+    <button class="mr-4" style="width: 50%;" nz-button nzType="primary" (click)="goback()">上一頁</button>
+    <button class="mr-4" style="width: 50%;" nz-button nzType="primary" (click)="cancel()">取消</button>
+    <button class="mr-4" style="width: 50%;" nz-button nzType="primary" (click)="finish()">完成</button>
+
+  </div>
